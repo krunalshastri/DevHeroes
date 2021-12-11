@@ -15,7 +15,7 @@ const Dashboard = (props) => {
       <h1 className='large text-primary'> Dashboard </h1>
       <p className='lead'>
         <i className='fas fa-user' /> Welcome{' '}
-        {props.auth.user && props.auth.user.name}
+        {props.auth.user && <i>{props.auth.user.name}</i>}
       </p>
 
       {!props.profile.loading &&
