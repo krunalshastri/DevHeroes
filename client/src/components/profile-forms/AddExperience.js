@@ -23,7 +23,6 @@ const AddExperience = ({ addExperience }) => {
 
   let history = useHistory();
   function handleOnSubmit(event) {
-    console.log(formData, history);
     event.preventDefault();
     addExperience(formData, history);
   }
