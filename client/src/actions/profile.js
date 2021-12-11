@@ -129,18 +129,18 @@ export const addEducation = (formData, history) => async (dispatch) => {
 
     history.push('/dashboard');
   } catch (err) {
-    // const errors = err.response.data.errors;
-    // if (errors.length > 0) {
-    //   errors.forEach((element) => {
-    //     dispatch(setAlert(element.msg, 'danger'));
-    //   });
-    // }
-    // dispatch({
-    //   type: PROFILE_ERROR,
-    //   payload: {
-    //     msg: err.response.data,
-    //     status: err.response.status,
-    //   },
-    // });
+    const errors = err.response.data.errors;
+    if (errors.length > 0) {
+      errors.forEach((element) => {
+        dispatch(setAlert(element.msg, 'danger'));
+      });
+    }
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.data,
+        status: err.response.status,
+      },
+    });
   }
 };
