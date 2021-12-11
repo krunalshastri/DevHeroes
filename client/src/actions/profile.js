@@ -78,7 +78,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
       config
     );
 
-    console.log(formData);
+    console.log(formData, res);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -89,8 +89,9 @@ export const addExperience = (formData, history) => async (dispatch) => {
 
     history.push('/dashboard');
   } catch (err) {
+    console.log(err);
     const errors = err.response.data.errors;
-    if (errors.length > 0) {
+    if (errors) {
       errors.forEach((element) => {
         dispatch(setAlert(element.msg, 'danger'));
       });
@@ -129,18 +130,18 @@ export const addEducation = (formData, history) => async (dispatch) => {
 
     history.push('/dashboard');
   } catch (err) {
-    const errors = err.response.data.errors;
-    if (errors.length > 0) {
-      errors.forEach((element) => {
-        dispatch(setAlert(element.msg, 'danger'));
-      });
-    }
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: {
-        msg: err.response.data,
-        status: err.response.status,
-      },
-    });
+    // const errors = err.response.data.errors;
+    // if (errors.length > 0) {
+    //   errors.forEach((element) => {
+    //     dispatch(setAlert(element.msg, 'danger'));
+    //   });
+    // }
+    // dispatch({
+    //   type: PROFILE_ERROR,
+    //   payload: {
+    //     msg: err.response.data,
+    //     status: err.response.status,
+    //   },
+    // });
   }
 };

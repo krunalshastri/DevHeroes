@@ -164,6 +164,7 @@ router
         return res.status(400).json({ errors: errors.array() });
       }
 
+      console.log(req);
       const { title, company, location, from, to, current, description } =
         req.body;
 
@@ -176,6 +177,8 @@ router
         current,
         description,
       };
+
+      console.log(newExp);
 
       try {
         const profile = await Profile.findOne({ user: req.user.id });
