@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
+import {
+  CLEAR_PROFILE,
+  DELETE_ACCOUNT,
+  GET_PROFILE,
+  PROFILE_ERROR,
+  UPDATE_PROFILE,
+} from './types';
 
 export const getCurrentProfile = () => async (dispatch) => {
   try {
@@ -142,5 +148,73 @@ export const addEducation = (formData, history) => async (dispatch) => {
         status: err.response.status,
       },
     });
+  }
+};
+
+// Delete Experience
+export const deleteExperience = (id) => async (dispatch) => {
+  try {
+    axios.delete(`/dev/profile/experience/${id}`).then((res) =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data,
+      })
+    );
+    dispatch(setAlert('Experience Removed!', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.data,
+        status: err.response.status,
+      },
+    });
+  }
+};
+
+// Delete Education
+export const deleteEducation = (id) => async (dispatch) => {
+  try {
+    axios.delete(`/dev/profile/education/${id}`).then((res) =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data,
+      })
+    );
+    dispatch(setAlert('Education Removed!', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.data,
+        status: err.response.status,
+      },
+    });
+  }
+};
+
+//Delete profile & account
+export const deleteAccount = () => async (dispatch) => {
+  if (window.confirm('Are you sure want to DELETE your account?')) {
+    try {
+      axios.delete(`/dev/profile`).then(
+        (res) =>
+          dispatch({
+            type: CLEAR_PROFILE,
+          }),
+        dispatch({
+          type: DELETE_ACCOUNT,
+        })
+      );
+      dispatch(setAlert('Education Removed!', 'success'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: {
+          msg: err.response.data,
+          status: err.response.status,
+        },
+      });
+    }
   }
 };
