@@ -67,7 +67,9 @@ router
       if (status) profileF.status = status;
       if (githubusername) profileF.githubusername = githubusername;
       if (skills) {
-        profileF.skills = skills;
+        if (!Array.isArray(skills)) {
+          profileF.skills = skills.split(',').map((skills) => skills.trim());
+        }
       }
 
       profileF.social = {};
@@ -105,7 +107,7 @@ router
 //Get all the profiles
 router.route('/profile/all').get(async (req, res) => {
   try {
-    const profiles = await Profile.find().populate('users', ['name', 'avatar']);
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);

@@ -30,7 +30,7 @@ export const getCurrentProfile = () => async (dispatch) => {
 };
 
 //Get All Profiles
-export const getAllProfiles = () => async (dispatch) => {
+export const getProfiles = () => async (dispatch) => {
   try {
     const res = await axios.get('http://localhost:5000/dev/profile/all');
     console.log(res);
