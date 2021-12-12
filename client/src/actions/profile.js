@@ -206,7 +206,7 @@ export const deleteAccount = () => async (dispatch) => {
           type: DELETE_ACCOUNT,
         })
       );
-      dispatch(setAlert('Education Removed!', 'success'));
+      dispatch(setAlert('Account & Profile has been permanently Deleted!'));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,
