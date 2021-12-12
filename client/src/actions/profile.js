@@ -55,6 +55,8 @@ export const getProfileById = (userId) => async (dispatch) => {
     const res = await axios.get(
       `http://localhost:5000/dev/profile/user/${userId}`
     );
+
+    console.log(typeof res.data);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -143,6 +145,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
       headers: { 'Content-Type': 'application/json' },
     };
 
+    console.log(formData, config);
     const res = await axios.put(
       'http://localhost:5000/dev/profile/experience',
       formData,

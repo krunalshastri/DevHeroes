@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
+import ProfileCreds from './ProfileCreds';
 
 const ProfileById = ({
   getProfileById,
@@ -16,6 +17,7 @@ const ProfileById = ({
     getProfileById(match.params.id);
   }, [getProfileById, match.params.id]);
 
+  console.log(profile, loading);
   return (
     <Fragment>
       {profile === null || loading ? (
@@ -33,6 +35,10 @@ const ProfileById = ({
           <div class='profile-grid my-1'>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
+            <ProfileCreds
+              experiences={profile.experience}
+              educations={profile.education}
+            />
           </div>
         </Fragment>
       )}

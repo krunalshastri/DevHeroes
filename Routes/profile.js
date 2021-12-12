@@ -56,8 +56,6 @@ router
         linkedin,
       } = req.body;
 
-      console.log(req.body.skills);
-
       const profileF = {};
       profileF.user = req.user.id;
       if (company) profileF.company = company;
@@ -181,10 +179,9 @@ router
         description,
       };
 
-      console.log(newExp);
-
       try {
         const profile = await Profile.findOne({ user: req.user.id });
+        console.log(profile);
         profile.experience.unshift(newExp);
         await profile.save();
         res.json(profile);
