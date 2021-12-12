@@ -34,6 +34,9 @@ const ProfileCreds = ({ experiences, educations }) => {
   );
 };
 
-ProfileCreds.propTypes = {};
+ProfileCreds.propTypes = {
+  experiences: PropTypes.array.isRequired,
+  educations: PropTypes.array.isRequired,
+};
 
 export default ProfileCreds;
