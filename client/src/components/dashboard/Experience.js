@@ -30,17 +30,21 @@ const Experience = ({ experience, deleteExperience }) => {
   return (
     <Fragment>
       <h2 className='my-2'>Experience Credentials</h2>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Company</th>
-            <th>Title</th>
-            <th>Timeline</th>
-            <th />
-          </tr>
-          {experiences}
-        </thead>
-      </table>
+      {experience.length > 0 ? (
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Title</th>
+              <th>Timeline</th>
+              <th />
+            </tr>
+            {experiences}
+          </thead>
+        </table>
+      ) : (
+        <span>Nothing added yet!</span>
+      )}
     </Fragment>
   );
 };
