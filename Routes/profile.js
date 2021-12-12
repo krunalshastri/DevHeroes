@@ -113,7 +113,7 @@ router.route('/profile/all').get(async (req, res) => {
   }
 });
 
-//Get a particular user profiles
+//Get a particular user profile
 router.route('/profile/user/:userId').get(async (req, res) => {
   try {
     const profile = await Profile.findOne({

@@ -6,13 +6,78 @@ import {
   GET_PROFILE,
   PROFILE_ERROR,
   UPDATE_PROFILE,
+  GET_PROFILES,
+  GET_REPOS,
 } from './types';
 
+//Get Current Profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await axios.get('http://localhost:5000/dev/profile');
     dispatch({
       type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.data,
+        status: err.response.status,
+      },
+    });
+  }
+};
+
+//Get All Profiles
+export const getAllProfiles = () => async (dispatch) => {
+  try {
+    const res = await axios.get('http://localhost:5000/dev/profile/all');
+    console.log(res);
+    dispatch({
+      type: GET_PROFILES,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.data,
+        status: err.response.status,
+      },
+    });
+  }
+};
+
+//Get Profile by Id
+export const getProfileById = (userId) => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      `http://localhost:5000/dev/profile/user/${userId}`
+    );
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.data,
+        status: err.response.status,
+      },
+    });
+  }
+};
+
+//Get Github Repos
+export const getGithubRepos = (username) => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      `http://localhost:5000/dev/profile/github/${username}`
+    );
+    dispatch({
+      type: GET_REPOS,
       payload: res.data,
     });
   } catch (err) {
@@ -83,8 +148,6 @@ export const addExperience = (formData, history) => async (dispatch) => {
       formData,
       config
     );
-
-    console.log(formData, res);
 
     dispatch({
       type: UPDATE_PROFILE,
