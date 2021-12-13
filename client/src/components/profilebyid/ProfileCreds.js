@@ -2,8 +2,10 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
+import ProfileGithub from './ProfileGithub';
 
-const ProfileCreds = ({ experiences, educations }) => {
+const ProfileCreds = ({ experiences, educations, githubUsername }) => {
+  console.log(githubUsername);
   return (
     <Fragment>
       <div className='profile-exp bg-white p-2'>
@@ -30,6 +32,7 @@ const ProfileCreds = ({ experiences, educations }) => {
           <h4>No Education Credentials</h4>
         )}
       </div>
+      {githubUsername ? <ProfileGithub username={githubUsername} /> : null}
     </Fragment>
   );
 };

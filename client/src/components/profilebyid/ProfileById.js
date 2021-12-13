@@ -38,6 +38,7 @@ const ProfileById = ({
             <ProfileCreds
               experiences={profile.experience}
               educations={profile.education}
+              githubUsername={profile.githubusername}
             />
           </div>
         </Fragment>
