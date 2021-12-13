@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getGithubRepos } from '../../actions/profile';
+import Spinner from '../layout/Spinner';
 
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   console.log(repos);
@@ -13,7 +14,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
     <div className='profile-github'>
       <h2 className='text-primary my-1'>Github Repositories</h2>
       {repos === null ? (
-        <p>Loading...</p>
+        <Spinner />
       ) : (
         repos.map((repo) => (
           <div key={repo._id} className='repo bg-white p-1 my-1'>

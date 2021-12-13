@@ -4,16 +4,20 @@ import { connect } from 'react-redux';
 import { getPosts } from '../../actions/post';
 import PostItem from './PostItem';
 import PostForm from './PostForm';
+import Spinner from '../layout/Spinner';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
   return loading ? (
-    <p>Loading...</p>
+    <Spinner />
   ) : (
     <Fragment>
-      <h1 className='large text-primary'>Posts</h1>
+      <h1 className='large text-primary'>
+        {' '}
+        <i class='fas fa-comment'></i> Posts
+      </h1>
       <p className='lead'>
         <i className='fas fa-user' /> Welcome to the community
       </p>

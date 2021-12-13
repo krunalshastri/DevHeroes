@@ -6,6 +6,7 @@ import PostItem from '../posts/PostItem';
 import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
 import { getPost } from '../../actions/post';
+import Spinner from '../layout/Spinner';
 
 const Post = ({ getPost, post: { post, loading } }) => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const Post = ({ getPost, post: { post, loading } }) => {
   }, [getPost, id]);
 
   return loading || post === null ? (
-    <p>Loading...</p>
+    <Spinner />
   ) : (
     <Fragment>
       <Link to='/posts' className='btn'>

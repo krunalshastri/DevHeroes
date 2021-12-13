@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileCreds from './ProfileCreds';
+import Spinner from '../layout/Spinner';
 
 const ProfileById = ({
   getProfileById,
@@ -21,7 +22,7 @@ const ProfileById = ({
   return (
     <Fragment>
       {profile === null || loading ? (
-        <p>Loading.....</p>
+        <Spinner />
       ) : (
         <Fragment>
           <Link to='/profiles' className='btn btn-light'>

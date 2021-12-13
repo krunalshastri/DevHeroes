@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfiles } from '../../actions/profile';
 import ProfileItem from './ProfileItem';
+import Spinner from '../layout/Spinner';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
@@ -12,11 +13,14 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   return (
     <Fragment>
       {loading ? (
-        <p>Loading....</p>
+        <Spinner />
       ) : (
         <Fragment>
           {' '}
-          <h1 className='large text-primary'>Developers</h1>
+          <h1 className='large text-primary'>
+            {' '}
+            <i class='fas fa-users'></i> Developers
+          </h1>
           <p className='lead'>
             {' '}
             <i className='fa fa-connectdevelop'></i> Browse and connect with

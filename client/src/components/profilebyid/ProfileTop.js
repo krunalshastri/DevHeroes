@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import normalizeUrl from 'normalize-url';
 
 const ProfileTop = ({
   profile: {
@@ -12,9 +13,14 @@ const ProfileTop = ({
     user: { name, avatar },
   },
 }) => {
+  console.log(normalizeUrl(avatar, { forceHttps: true }));
   return (
-    <div className='profile-top bg-primary p-2'>
-      <img className='round-img my-1' src={avatar} alt='' />
+    <div className='profile-top bg-primary p-1'>
+      <img
+        className='round-img my-1'
+        src={normalizeUrl(avatar, { forceHttps: true })}
+        alt=''
+      />
       <h1 className='large'>{name}</h1>
       <p className='lead'>
         {status} {company && <span>at {company}</span>}

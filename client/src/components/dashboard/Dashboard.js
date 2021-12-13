@@ -14,7 +14,10 @@ const Dashboard = (props) => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'> Dashboard </h1>
+      <h1 className='large text-primary'>
+        {' '}
+        <i class='fas fa-clipboard-list'></i> Dashboard{' '}
+      </h1>
       <div className='my-1'>
         <button
           className='btn-danger btn'

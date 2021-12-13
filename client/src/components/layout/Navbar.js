@@ -26,20 +26,33 @@ const Navbar = (props) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to='/profiles'>
+          {' '}
+          <i class='fas fa-users'></i> Developers
+        </Link>
       </li>
       <li>
-        <Link to='/posts'>Posts</Link>
+        <Link to='/posts'>
+          {' '}
+          <i class='fas fa-comment'></i> Posts
+        </Link>
       </li>
       <li>
         <Link to='/dashboard'>
           {' '}
-          <i className='fas fa-user' />{' '}
+          <i class='fas fa-clipboard-list'></i>{' '}
           <span className='hide-sm'>Dashboard </span>{' '}
         </Link>
       </li>
       <li>
-        <a href='#!' onClick={handleOnClick}>
+        <Link to='/profiles'>
+          {' '}
+          <i className='fas fa-user' />{' '}
+          <span className='hide-sm'>My Profile </span>{' '}
+        </Link>
+      </li>
+      <li>
+        <a href='/login' onClick={handleOnClick}>
           <i className='fas fa-sign-out-alt' />{' '}
           <span className='hide-sm'>Logout </span>{' '}
         </a>

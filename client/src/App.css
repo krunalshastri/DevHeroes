@@ -382,7 +382,7 @@ button {
 }
 
 .profile-top img {
-  width: 250px;
+  width: 210px;
 }
 
 .profile-top .icons a {
@@ -537,9 +537,9 @@ button {
     text-align: center;
   }
 
-  .profile ul {
+  /* .profile ul {
     display: none;
-  }
+  } */
 
   /* Profile Page */
 
