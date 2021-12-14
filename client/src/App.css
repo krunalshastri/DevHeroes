@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #52734d;
+  --primary-color: #3b5998;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -17,8 +17,9 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
   color: #333;
+  background-color: #ffffff;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-dotted-2.png');
 }
 
 a {
@@ -38,7 +39,7 @@ img {
 .container {
   max-width: 1100px;
   margin: auto;
-  overflow: hidden;
+  overflow-y: hidden;
   padding: 0 2rem;
   margin-top: 6rem;
   margin-bottom: 3rem;
@@ -126,11 +127,18 @@ img {
   margin: 3rem 0;
 }
 
+.card {
+  width: 65%;
+  background-color: white;
+  padding: 2rem;
+  margin: auto;
+}
+
 .btn {
   display: inline-block;
   background: var(--light-color);
   color: #333;
-  padding: 0.4rem 1.3rem;
+  padding: 0.3rem 1.1rem;
   font-size: 1rem;
   border: none;
   cursor: pointer;
@@ -296,7 +304,8 @@ button {
 }
 
 .table th {
-  background: var(--light-color);
+  background: var(--dark-color);
+  color: var(--light-color);
 }
 
 /* Navbar */
@@ -324,7 +333,7 @@ button {
 }
 
 .navbar a:hover {
-  color: #ddffbc;
+  color: #acbde2;
 }
 
 .navbar .welcome span {
@@ -463,7 +472,7 @@ button {
 .post {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-gap: 2rem;
+  grid-gap: 1rem;
   align-items: center;
 }
 
@@ -493,6 +502,7 @@ button {
 @media (max-width: 700px) {
   .container {
     margin-top: 8rem;
+    padding: 0 1rem;
   }
 
   .hide-sm {
@@ -530,6 +540,22 @@ button {
   .navbar .welcome {
     display: none;
   }
+  .card {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    /* margin: auto; */
+  }
+
+  .btn {
+    padding: 0.2rem 1rem;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s ease-in;
+    outline: none;
+  }
 
   /* Profiles Page */
   .profile {
@@ -537,9 +563,9 @@ button {
     text-align: center;
   }
 
-  /* .profile ul {
+  .profile ul {
     display: none;
-  } */
+  }
 
   /* Profile Page */
 

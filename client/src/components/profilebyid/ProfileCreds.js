@@ -5,7 +5,6 @@ import ProfileEducation from './ProfileEducation';
 import ProfileGithub from './ProfileGithub';
 
 const ProfileCreds = ({ experiences, educations, githubUsername }) => {
-  console.log(githubUsername);
   return (
     <Fragment>
       <div className='profile-exp bg-white p-2'>

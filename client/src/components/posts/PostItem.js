@@ -55,7 +55,7 @@ const PostItem = ({
               type='button'
               className='btn btn-danger'
             >
-              <i className='fas fa-times' />
+              <i class='fas fa-trash-alt'></i>
             </button>
           )}
         </Fragment>

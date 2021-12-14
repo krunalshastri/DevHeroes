@@ -19,7 +19,7 @@ const Post = ({ getPost, post: { post, loading } }) => {
   ) : (
     <Fragment>
       <Link to='/posts' className='btn'>
-        Back To Posts
+        <i class='fas fa-arrow-circle-left'></i> Back To Posts
       </Link>
       <PostItem post={post} showActions={false} />
       <CommentForm postId={post._id} />

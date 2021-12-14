@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
@@ -6,7 +6,7 @@ const ProfileEducation = ({
   education: { school, degree, fieldofstudy, from, current, to, description },
 }) => {
   return (
-    <div>
+    <Fragment>
       <h3 className='text-dark'>{school}</h3>
       <p>
         <Moment format='YYYY/MM/DD'>{from}</Moment> -{' '}
@@ -24,7 +24,7 @@ const ProfileEducation = ({
         {' '}
         <strong>Description: </strong> {description}{' '}
       </p>
-    </div>
+    </Fragment>
   );
 };
 

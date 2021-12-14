@@ -8,13 +8,25 @@ const Navbar = (props) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Developers</Link>
+        <Link to='/profiles'>
+          {' '}
+          <i class='fas fa-users'></i>{' '}
+          <span className='hide-sm'>Developers</span>
+        </Link>
       </li>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register'>
+          {' '}
+          <i class='fas fa-user-plus'></i>{' '}
+          <span className='hide-sm'>Register</span>
+        </Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'>
+          {' '}
+          <i class='fas fa-sign-in-alt'></i>{' '}
+          <span className='hide-sm'>Login</span>
+        </Link>
       </li>
     </ul>
   );
@@ -28,13 +40,14 @@ const Navbar = (props) => {
       <li>
         <Link to='/profiles'>
           {' '}
-          <i class='fas fa-users'></i> Developers
+          <i class='fas fa-users'></i>{' '}
+          <span className='hide-sm'>Developers</span>
         </Link>
       </li>
       <li>
         <Link to='/posts'>
           {' '}
-          <i class='fas fa-comment'></i> Posts
+          <i class='fas fa-comment'></i> <span className='hide-sm'>Posts</span>
         </Link>
       </li>
       <li>
@@ -45,14 +58,14 @@ const Navbar = (props) => {
         </Link>
       </li>
       <li>
-        <Link to='/profiles'>
+        <Link to={`/profiles/${props.auth.user?._id}`}>
           {' '}
           <i className='fas fa-user' />{' '}
           <span className='hide-sm'>My Profile </span>{' '}
         </Link>
       </li>
       <li>
-        <a href='/login' onClick={handleOnClick}>
+        <a href='/' onClick={handleOnClick}>
           <i className='fas fa-sign-out-alt' />{' '}
           <span className='hide-sm'>Logout </span>{' '}
         </a>

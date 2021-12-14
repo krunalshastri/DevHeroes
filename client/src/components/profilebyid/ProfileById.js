@@ -7,9 +7,11 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileCreds from './ProfileCreds';
 import Spinner from '../layout/Spinner';
+import { deleteAccount } from '../../actions/profile';
 
 const ProfileById = ({
   getProfileById,
+  deleteAccount,
   match,
   profile: { profile, loading },
   auth,
@@ -18,7 +20,6 @@ const ProfileById = ({
     getProfileById(match.params.id);
   }, [getProfileById, match.params.id]);
 
-  console.log(profile, loading);
   return (
     <Fragment>
       {profile === null || loading ? (
@@ -26,13 +27,16 @@ const ProfileById = ({
       ) : (
         <Fragment>
           <Link to='/profiles' className='btn btn-light'>
-            Back To Profiles
+            <i class='fas fa-arrow-circle-left'></i> Back To Profiles
           </Link>
           {auth.isAuth && !auth.loading && auth.user._id === profile.user._id && (
             <Link to='/edit-profile' className='btn btn-dark'>
-              Edit Profile
+              <i class='fas fa-user-edit'></i> Edit Profile
             </Link>
           )}
+          <button className='btn-danger btn' onClick={() => deleteAccount()}>
+            <i className='fas fa-user-minus'></i> Delete My Account
+          </button>
           <div class='profile-grid my-1'>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
@@ -52,6 +56,7 @@ ProfileById.propTypes = {
   getProfileById: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -59,4 +64,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getProfileById })(ProfileById);
+export default connect(mapStateToProps, { getProfileById, deleteAccount })(
+  ProfileById
+);

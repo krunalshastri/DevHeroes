@@ -18,14 +18,7 @@ const Dashboard = (props) => {
         {' '}
         <i class='fas fa-clipboard-list'></i> Dashboard{' '}
       </h1>
-      <div className='my-1'>
-        <button
-          className='btn-danger btn'
-          onClick={() => props.deleteAccount()}
-        >
-          <i className='fas fa-user-minus'></i> Delete My Account
-        </button>
-      </div>
+
       <p className='lead'>
         <i className='fas fa-user' /> Welcome,{' '}
         {props.auth.user && <i>{props.auth.user.name}</i>}
