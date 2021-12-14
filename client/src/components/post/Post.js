@@ -7,6 +7,7 @@ import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
 import { getPost } from '../../actions/post';
 import Spinner from '../layout/Spinner';
+import Alert from '../layout/Alert';
 
 const Post = ({ getPost, post: { post, loading } }) => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ const Post = ({ getPost, post: { post, loading } }) => {
       <Link to='/posts' className='btn'>
         <i class='fas fa-arrow-circle-left'></i> Back To Posts
       </Link>
+      <Alert />
       <PostItem post={post} showActions={false} />
       <CommentForm postId={post._id} />
       <div className='comments'>

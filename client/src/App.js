@@ -36,12 +36,13 @@ function App() {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path='/' component={Landing} />
+          <div className='wrapper'>
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/register' component={Register} />
+          </div>
           <section className='container'>
-            <Alert />
             <Switch>
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/register' component={Register} />
               <Route exact path='/profiles' component={Profiles} />
               <Route exact path='/profiles/:id' component={ProfileById} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />

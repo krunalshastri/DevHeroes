@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import DashboardActions from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
+import Alert from '../layout/Alert';
 
 const Dashboard = (props) => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const Dashboard = (props) => {
 
   return (
     <Fragment>
+      <Alert />
       <h1 className='large text-primary'>
         {' '}
         <i class='fas fa-clipboard-list'></i> Dashboard{' '}

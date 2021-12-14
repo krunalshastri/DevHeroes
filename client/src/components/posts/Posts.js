@@ -5,6 +5,7 @@ import { getPosts } from '../../actions/post';
 import PostItem from './PostItem';
 import PostForm from './PostForm';
 import Spinner from '../layout/Spinner';
+import Alert from '../layout/Alert';
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
       <p className='lead'>
         <i className='fas fa-user' /> Welcome to the community
       </p>
+      <Alert />
       <PostForm />
       <div className='posts'>
         {posts.map((post) => (

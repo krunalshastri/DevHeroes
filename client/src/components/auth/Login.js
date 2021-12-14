@@ -1,8 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { login } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import Alert from '../layout/Alert';
 
 const Login = (props) => {
   const [formData, setFormData] = useState({
@@ -29,45 +30,53 @@ const Login = (props) => {
   }
 
   return (
-    <Fragment>
-      <div className='card'>
-        <h1 className='large text-primary'>
-          <i class='fas fa-sign-in-alt'></i> Log in
-        </h1>
-        <p className='lead'>
-          <i className='fas fa-user'></i> Log into your account
-        </p>
-        <form className='form' onSubmit={handleOnSubmit}>
-          <div className='form-group'>
-            <input
-              type='email'
-              placeholder='Email Address'
-              name='email'
-              value={email}
-              onChange={handleOnChange}
-            />
-            <small className='form-text'>
-              This site uses Gravatar so if you want a profile image, use a
-              Gravatar email
-            </small>
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              placeholder='Password'
-              name='password'
-              minLength='4'
-              value={password}
-              onChange={handleOnChange}
-            />
-          </div>
-          <input type='submit' className='btn btn-primary' value='Login' />
-        </form>
-        <p className='my-1'>
-          Don't have an account? <Link to='/register'>Sign Up</Link>
-        </p>
+    <section className='register'>
+      <div className='dark-overlay-register'>
+        <div className='register-inner'>
+          <h1 className='large text-light'>
+            <i class='fas fa-sign-in-alt'></i> Log in
+          </h1>
+          <p className='lead hide-sm'>
+            <i className='fas fa-user'></i> Log into your account
+          </p>
+          <Alert />
+          <form className='form' onSubmit={handleOnSubmit}>
+            <div className='form-group'>
+              <input
+                type='email'
+                placeholder='Email Address'
+                name='email'
+                value={email}
+                onChange={handleOnChange}
+              />
+              <small className='form-text hide-sm'>
+                This site uses Gravatar so if you want a profile image, use a
+                Gravatar email
+              </small>
+            </div>
+            <div className='form-group'>
+              <input
+                type='password'
+                placeholder='Password'
+                name='password'
+                minLength='4'
+                value={password}
+                onChange={handleOnChange}
+              />
+            </div>
+            <button className='btn btn-light' onClick={handleOnSubmit}>
+              <i class='fas fa-sign-in-alt'></i> Login
+            </button>
+          </form>
+          <p className='my-2'>
+            Don't have an account?{' '}
+            <Link to='/register' className='btn btn-primary'>
+              <i class='fas fa-user-plus'></i> Sign Up
+            </Link>
+          </p>
+        </div>
       </div>
-    </Fragment>
+    </section>
   );
 };
 

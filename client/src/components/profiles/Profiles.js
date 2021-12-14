@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getProfiles } from '../../actions/profile';
 import ProfileItem from './ProfileItem';
 import Spinner from '../layout/Spinner';
+import Alert from '../layout/Alert';
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
@@ -26,6 +27,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
             <i className='fa fa-connectdevelop'></i> Browse and connect with
             developers
           </p>
+          <Alert />
           <div className='profiles'>
             {profiles.length > 0 ? (
               profiles.map((profile) => (
