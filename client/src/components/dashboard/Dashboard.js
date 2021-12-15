@@ -34,13 +34,13 @@ const Dashboard = (props) => {
             <Education education={props.profile.profile.education} />
           </Fragment>
         ) : (
-          <Fragment>
+          <div>
             <p>You haven't added a profile yet.</p>
             <Link to='/create-profile' className='btn btn-primary my-1'>
               {' '}
               Create Profile{' '}
             </Link>
-          </Fragment>
+          </div>
         ))}
     </Fragment>
   );

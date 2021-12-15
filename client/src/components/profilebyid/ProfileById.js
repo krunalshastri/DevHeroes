@@ -23,7 +23,17 @@ const ProfileById = ({
   return (
     <Fragment>
       {profile === null || loading ? (
-        <Spinner />
+        profile === null ? (
+          <div className='text-center'>
+            <p className='text-center'>You haven't added a profile yet.</p>
+            <Link to='/create-profile' className='btn btn-primary my-1'>
+              {' '}
+              Create Profile{' '}
+            </Link>
+          </div>
+        ) : (
+          <Spinner />
+        )
       ) : (
         <Fragment>
           <Link to='/profiles' className='btn btn-light'>

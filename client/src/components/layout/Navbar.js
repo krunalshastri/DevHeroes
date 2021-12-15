@@ -61,7 +61,7 @@ const Navbar = (props) => {
         <Link to={`/profiles/${props.auth.user?._id}`}>
           {' '}
           <i className='fas fa-user' />{' '}
-          <span className='hide-sm'>My Profile </span>{' '}
+          <span className='hide-sm'>{props.auth.user?.name} </span>{' '}
         </Link>
       </li>
       <li>
