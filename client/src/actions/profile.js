@@ -13,7 +13,7 @@ import {
 //Get Current Profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    const res = await axios.get('http://localhost:5000/dev/profile');
+    const res = await axios.get('/dev/profile');
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -32,7 +32,7 @@ export const getCurrentProfile = () => async (dispatch) => {
 //Get All Profiles
 export const getProfiles = () => async (dispatch) => {
   try {
-    const res = await axios.get('http://localhost:5000/dev/profile/all');
+    const res = await axios.get('/dev/profile/all');
     console.log(res);
     dispatch({
       type: GET_PROFILES,
@@ -52,9 +52,7 @@ export const getProfiles = () => async (dispatch) => {
 //Get Profile by Id
 export const getProfileById = (userId) => async (dispatch) => {
   try {
-    const res = await axios.get(
-      `http://localhost:5000/dev/profile/user/${userId}`
-    );
+    const res = await axios.get(`/dev/profile/user/${userId}`);
 
     console.log(typeof res.data);
     dispatch({
@@ -75,9 +73,7 @@ export const getProfileById = (userId) => async (dispatch) => {
 //Get Github Repos
 export const getGithubRepos = (username) => async (dispatch) => {
   try {
-    const res = await axios.get(
-      `http://localhost:5000/dev/profile/github/${username}`
-    );
+    const res = await axios.get(`/dev/profile/github/${username}`);
     dispatch({
       type: GET_REPOS,
       payload: res.data,
@@ -102,11 +98,7 @@ export const createProfile =
         headers: { 'Content-Type': 'application/json' },
       };
 
-      const res = await axios.post(
-        'http://localhost:5000/dev/profile',
-        formData,
-        config
-      );
+      const res = await axios.post('/dev/profile', formData, config);
 
       console.log(formData);
       console.log(edit);
@@ -146,11 +138,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
     };
 
     console.log(formData, config);
-    const res = await axios.put(
-      'http://localhost:5000/dev/profile/experience',
-      formData,
-      config
-    );
+    const res = await axios.put('/dev/profile/experience', formData, config);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -184,11 +172,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
       headers: { 'Content-Type': 'application/json' },
     };
 
-    const res = await axios.put(
-      'http://localhost:5000/dev/profile/education',
-      formData,
-      config
-    );
+    const res = await axios.put('/dev/profile/education', formData, config);
 
     console.log(formData);
 
