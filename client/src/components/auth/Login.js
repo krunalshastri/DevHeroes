@@ -33,13 +33,13 @@ const Login = (props) => {
     <section className='register'>
       <div className='dark-overlay-register'>
         <div className='register-inner'>
+          <Alert />
           <h1 className='large text-light'>
             <i class='fas fa-sign-in-alt'></i> Log in
           </h1>
           <p className='lead hide-sm'>
             <i className='fas fa-user'></i> Log into your account
           </p>
-          <Alert />
           <form className='form' onSubmit={handleOnSubmit}>
             <div className='form-group'>
               <input

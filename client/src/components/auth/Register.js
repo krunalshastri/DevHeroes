@@ -39,6 +39,7 @@ const Register = (props) => {
     <section className='register'>
       <div className='dark-overlay-register'>
         <div className='register-inner'>
+          <Alert />
           <h1 className='large text-light'>
             {' '}
             <i class='fas fa-user-plus'></i> Sign Up
@@ -46,7 +47,6 @@ const Register = (props) => {
           <p className='lead hide-sm'>
             <i className='fas fa-user'></i> Create Your Account
           </p>
-          <Alert />
           <form className='form' onSubmit={handleOnSubmit}>
             <div className='form-group'>
               <input
